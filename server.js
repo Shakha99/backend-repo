@@ -4,9 +4,13 @@ const { Pool } = require('pg');
 const dotenv = require('dotenv');
 const crypto = require('crypto');
 const axios = require('axios');
+const cors = require('cors');
 
 dotenv.config();
 const app = express();
+
+app.use(cors()); // Разрешает запросы от всех доменов
+
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
 app.use(bodyParser.json());
