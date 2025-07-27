@@ -162,4 +162,7 @@ app.post('/api/language', async (req, res) => {
   res.json({ success: true });
 });
 
-app.listen(process.env.PORT, () => console.log('Server running'));
+const port = process.env.PORT || 5000; // Использует порт Render или 5000 по умолчанию
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
